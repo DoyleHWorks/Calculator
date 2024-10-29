@@ -44,8 +44,9 @@ class Calculator {
     let divideOperation = DivideOperation()
     let modulusOperation = ModulusOperation()
     
-    func DisplayResult(_ value: Double) {
-        print(value)
+    func DisplayResult(_ lhs: Double, _ operation: String, _ rhs: Double, _ value: Double) -> String {
+        print("\(lhs) \(operation) \(rhs) = \(value)")
+        return "\(lhs) \(operation) \(rhs) = \(value)"
     }
     
     func Calculate(_ lhs: Double, _ operation: String, _ rhs: Double) -> Double {
@@ -70,7 +71,7 @@ class Calculator {
             print("Error: Invalid operation")
             return Double.nan
         }
-        DisplayResult(result)
+        DisplayResult(lhs, operation, rhs, result)
         return result
     }
 }
