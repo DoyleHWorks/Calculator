@@ -7,31 +7,31 @@
 // Arithmetic + Remainder Operations
 
 class AddOperation {
-    func add(num1: Double, num2: Double) -> Double {
+    func add(_ num1: Double, _ num2: Double) -> Double {
         return num1 + num2
     }
 }
 
 class SubtractOperation {
-    func subtract(num1: Double, num2: Double) -> Double {
+    func subtract(_ num1: Double, _ num2: Double) -> Double {
         return num1 - num2
     }
 }
 
 class MultiplyOperation {
-    func multiply(num1: Double, num2: Double) -> Double {
+    func multiply(_ num1: Double, _ num2: Double) -> Double {
         return num1 * num2
     }
 }
 
 class DivideOperation {
-    func divide(num1: Double, num2: Double) -> Double {
+    func divide(_ num1: Double, _ num2: Double) -> Double {
         return num1 / num2
     }
 }
 
 class ModulusOperation {
-    func modulus(num1: Double, num2: Double) -> Double {
+    func modulus(_ num1: Double, _ num2: Double) -> Double {
         return num1.truncatingRemainder(dividingBy: num2)
     }
 }
@@ -55,32 +55,27 @@ class Calculator {
     }
     
     func Calculate(_ lhs: Double, _ operation: String, _ rhs: Double) -> Double {
-        num1 = lhs
-        num2 = rhs
+        let result: Double
+        
         switch operation {
         case "+" :
-            let result = addOperation.add(num1: num1, num2: num2)
-            DisplayResult(result)
-            return result
+            result = addOperation.add(lhs, rhs)
         case "-" :
-            let result = subtractOperation.subtract(num1: num1, num2: num2)
-            DisplayResult(result)
-            return result
+            result = subtractOperation.subtract(lhs, rhs)
         case "*" :
-            let result = multiplyOperation.multiply(num1: num1, num2: num2)
-            DisplayResult(result)
-            return result
+            result = multiplyOperation.multiply(lhs, rhs)
         case "/" :
             let result = divideOperation.divide(num1: num1, num2: num2)
             DisplayResult(result)
             return result
+            result = divideOperation.divide(lhs, rhs)
         case "%" :
-            let result = modulusOperation.modulus(num1: num1, num2: num2)
-            DisplayResult(result)
-            return result
+            result = modulusOperation.modulus(lhs, rhs)
         default:
             return 0
         }
+        DisplayResult(result)
+        return result
     }
 }
 
