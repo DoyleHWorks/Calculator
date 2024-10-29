@@ -1,40 +1,9 @@
-// Calculator - Personal Project for Learning Swift
-// Created by DOYLE 2024-10-28 16:31
 //
-
-// Arithmetic + Remainder Operations
-
-class AddOperation {
-    func add(_ num1: Double, _ num2: Double) -> Double {
-        return num1 + num2
-    }
-}
-
-class SubtractOperation {
-    func subtract(_ num1: Double, _ num2: Double) -> Double {
-        return num1 - num2
-    }
-}
-
-class MultiplyOperation {
-    func multiply(_ num1: Double, _ num2: Double) -> Double {
-        return num1 * num2
-    }
-}
-
-class DivideOperation {
-    func divide(_ num1: Double, _ num2: Double) -> Double {
-        return num1 / num2
-    }
-}
-
-class ModulusOperation {
-    func modulus(_ num1: Double, _ num2: Double) -> Double {
-        return num1.truncatingRemainder(dividingBy: num2)
-    }
-}
-
-// Calculator
+//  Calculator.playground - Personal Project for Learning Swift
+//
+//
+//  Created by DOYLE on 10/28/24.
+//
 
 class Calculator {
     
@@ -76,9 +45,7 @@ class Calculator {
     }
 }
 
-
 let calculator = Calculator() // 인스턴스 생성하여 변수에 할당
-
 
 // User Input --------------------------------------------------------------------
 // 사용자 입력값을 따로 받지않고, 직접 함수의 파라미터로 값을 넣어 실행결과를 확인하는 방식으로 진행합니다.
