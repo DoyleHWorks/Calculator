@@ -65,14 +65,16 @@ class Calculator {
         case "*" :
             result = multiplyOperation.multiply(lhs, rhs)
         case "/" :
-            let result = divideOperation.divide(num1: num1, num2: num2)
-            DisplayResult(result)
-            return result
+            if rhs == 0 {
+                print("Error: Division by zero is not allowed.")
+                return Double.nan
+            }
             result = divideOperation.divide(lhs, rhs)
         case "%" :
             result = modulusOperation.modulus(lhs, rhs)
         default:
-            return 0
+            print("Error: Invalid operation")
+            return Double.nan
         }
         DisplayResult(result)
         return result
