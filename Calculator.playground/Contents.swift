@@ -1,8 +1,6 @@
-// Personal Project for Learning Swift
-//
+// Calculator - Personal Project for Learning Swift
 // Created by DOYLE 2024-10-28 16:31
 //
-// Calculator
 
 // Arithmetic + Remainder Operations
 
@@ -39,6 +37,7 @@ class ModulusOperation {
 
 
 // Calculator
+
 class Calculator {
 //    var display: Double = 0
     var num1: Double = 0
