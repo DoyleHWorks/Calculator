@@ -34,14 +34,9 @@ class ModulusOperation {
     }
 }
 
-
-
 // Calculator
 
 class Calculator {
-//    var display: Double = 0
-    var num1: Double = 0
-    var num2: Double = 0
     
     let addOperation = AddOperation()
     let subtractOperation = SubtractOperation()
