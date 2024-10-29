@@ -4,38 +4,86 @@
 //
 // Calculator
 
+// Arithmetic + Remainder Operations
+
+class AddOperation {
+    func add(num1: Double, num2: Double) -> Double {
+        return num1 + num2
+    }
+}
+
+class SubtractOperation {
+    func subtract(num1: Double, num2: Double) -> Double {
+        return num1 - num2
+    }
+}
+
+class MultiplyOperation {
+    func multiply(num1: Double, num2: Double) -> Double {
+        return num1 * num2
+    }
+}
+
+class DivideOperation {
+    func divide(num1: Double, num2: Double) -> Double {
+        return num1 / num2
+    }
+}
+
+class ModulusOperation {
+    func modulus(num1: Double, num2: Double) -> Double {
+        return num1.truncatingRemainder(dividingBy: num2)
+    }
+}
+
+
+
+// Calculator
 class Calculator {
 //    var display: Double = 0
-    var number1: Double = 0
-    var number2: Double = 0
+    var num1: Double = 0
+    var num2: Double = 0
     
-    func Calculate(_ number1: Double, _ operation: String, _ number2: Double) -> Double {
+    let addOperation = AddOperation()
+    let subtractOperation = SubtractOperation()
+    let multiplyOperation = MultiplyOperation()
+    let divideOperation = DivideOperation()
+    let modulusOperation = ModulusOperation()
+    
+    func DisplayResult(_ value: Double) {
+        print(value)
+    }
+    
+    func Calculate(_ lhs: Double, _ operation: String, _ rhs: Double) -> Double {
+        num1 = lhs
+        num2 = rhs
         switch operation {
         case "+" :
-            var result = number1 + number2
-            print("\(number1) + \(number2) = \(result)")
+            let result = addOperation.add(num1: num1, num2: num2)
+            DisplayResult(result)
             return result
         case "-" :
-            var result = number1 - number2
-            print("\(number1) - \(number2) = \(result)")
+            let result = subtractOperation.subtract(num1: num1, num2: num2)
+            DisplayResult(result)
             return result
         case "*" :
-            var result = number1 * number2
-            print("\(number1) * \(number2) = \(result)")
+            let result = multiplyOperation.multiply(num1: num1, num2: num2)
+            DisplayResult(result)
             return result
         case "/" :
-            var result = number1 / number2
-            print("\(number1) / \(number2) = \(result)")
+            let result = divideOperation.divide(num1: num1, num2: num2)
+            DisplayResult(result)
             return result
         case "%" :
-            var result = number1.truncatingRemainder(dividingBy: number2)
-            print("\(number1) % \(number2) = \(result)")
+            let result = modulusOperation.modulus(num1: num1, num2: num2)
+            DisplayResult(result)
             return result
         default:
             return 0
         }
     }
 }
+
 
 let calculator = Calculator() // 인스턴스 생성하여 변수에 할당
 
@@ -45,9 +93,9 @@ let calculator = Calculator() // 인스턴스 생성하여 변수에 할당
 // Playground 에서는 터미널의 readLine() 과 같은 입력 방식을 사용하지 않으므로
 // 코드 작성 시 상수나 파라미터를 이용해 값을 입력해 주세요!
 
-//calculator.Calculate(10, "+", 20)
-//calculator.Calculate(10, "-", 20)
-//calculator.Calculate(10, "*", 20)
-//calculator.Calculate(10, "/", 20)
-//calculator.Calculate(10, "%", 5.0)
+calculator.Calculate(10, "+", 20)
+calculator.Calculate(10, "-", 20)
+calculator.Calculate(10, "*", 20)
+calculator.Calculate(10, "/", 20)
+calculator.Calculate(10, "%", 5.0)
 
