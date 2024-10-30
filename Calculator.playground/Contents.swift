@@ -5,20 +5,31 @@
 //  Created by DOYLE on 10/28/24.
 //
 
+// Main Class for Calculator
 class Calculator {
     
+    // Sources_ArithmeticOperations.swift
     let addOperation = AddOperation()
     let subtractOperation = SubtractOperation()
     let multiplyOperation = MultiplyOperation()
     let divideOperation = DivideOperation()
     let modulusOperation = ModulusOperation()
     
+    // This function takes too many parameters and needs to be refined somehow
     func DisplayResult(_ lhs: Double, _ operation: String, _ rhs: Double, _ value: Double) -> String {
+        /// Displays the result in terminal. Also shows the operation expression.
         print("\(lhs) \(operation) \(rhs) = \(value)")
         return "\(lhs) \(operation) \(rhs) = \(value)"
     }
     
     func Calculate(_ lhs: Double, _ operation: String, _ rhs: Double) -> Double {
+        /// Performs a calculation based on the provided operator and operands.
+        /// - Parameters:
+        ///   - lhs: The left-hand side operand (Double).
+        ///   - operation: A string representing the mathematical operator ("+", "-", "*", "/", or "%").
+        ///   - rhs: The right-hand side operand (Double).
+        /// - Returns: The result of the operation as a Double. If division by zero occurs, returns NaN. If an invalid operator is provided, returns NaN.
+        /// - Note: Prints an error message if division by zero or an invalid operator is encountered.
         let result: Double
         
         switch operation {
@@ -29,15 +40,15 @@ class Calculator {
         case "*" :
             result = multiplyOperation.operate(lhs, rhs)
         case "/" :
-            if rhs == 0 {
+            if rhs == 0 { // Exception: Divided by Zero
                 print("Error: Division by zero is not allowed.")
                 return Double.nan
             }
             result = divideOperation.operate(lhs, rhs)
         case "%" :
             result = modulusOperation.operate(lhs, rhs)
-        default:
-            print("Error: Invalid operation")
+        default: // Exception: Invalid Operator
+            print("Error: Invalid operator")
             return Double.nan
         }
         DisplayResult(lhs, operation, rhs, result)
@@ -45,12 +56,16 @@ class Calculator {
     }
 }
 
-let calculator = Calculator() // 인스턴스 생성하여 변수에 할당
+let calculator = Calculator() // Creates an instance to assign it to a variable
+Calculator.Calculate
 
-// User Input --------------------------------------------------------------------
-// 사용자 입력값을 따로 받지않고, 직접 함수의 파라미터로 값을 넣어 실행결과를 확인하는 방식으로 진행합니다.
-// Playground 에서는 터미널의 readLine() 과 같은 입력 방식을 사용하지 않으므로
-// 코드 작성 시 상수나 파라미터를 이용해 값을 입력해 주세요!
+//
+// How to Use
+//
+// Instead of taking user input, please directly input values into the function parameters to check the execution results.
+// Since the Playground does not support input methods like readLine() in a terminal,
+// please use constants or parameters to input values when writing the code.
+//
 
 calculator.Calculate(10, "+", 20)
 calculator.Calculate(10, "-", 20)
