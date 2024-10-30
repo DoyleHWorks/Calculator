@@ -5,37 +5,41 @@
 //  Created by DOYLE on 10/29/24.
 //
 
-public class AddOperation {
+protocol Operation {
+    func operate(_ num1: Double, _ num2: Double) -> Double
+}
+
+public class AddOperation: Operation {
     public init() {}
-    public func add(_ num1: Double, _ num2: Double) -> Double {
+    public func operate(_ num1: Double, _ num2: Double) -> Double {
         return num1 + num2
     }
 }
 
-public class SubtractOperation {
+public class SubtractOperation: Operation {
     public init() {}
-    public func subtract(_ num1: Double, _ num2: Double) -> Double {
+    public func operate(_ num1: Double, _ num2: Double) -> Double {
         return num1 - num2
     }
 }
 
-public class MultiplyOperation {
+public class MultiplyOperation: Operation {
     public init() {}
-    public func multiply(_ num1: Double, _ num2: Double) -> Double {
+    public func operate(_ num1: Double, _ num2: Double) -> Double {
         return num1 * num2
     }
 }
 
-public class DivideOperation {
+public class DivideOperation: Operation {
     public init() {}
-    public func divide(_ num1: Double, _ num2: Double) -> Double {
+    public func operate(_ num1: Double, _ num2: Double) -> Double {
         return num1 / num2
     }
 }
 
-public class ModulusOperation {
+public class ModulusOperation: Operation {
     public init() {}
-    public func modulus(_ num1: Double, _ num2: Double) -> Double {
+    public func operate(_ num1: Double, _ num2: Double) -> Double {
         return num1.truncatingRemainder(dividingBy: num2)
     }
 }

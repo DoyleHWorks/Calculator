@@ -23,19 +23,19 @@ class Calculator {
         
         switch operation {
         case "+" :
-            result = addOperation.add(lhs, rhs)
+            result = addOperation.operate(lhs, rhs)
         case "-" :
-            result = subtractOperation.subtract(lhs, rhs)
+            result = subtractOperation.operate(lhs, rhs)
         case "*" :
-            result = multiplyOperation.multiply(lhs, rhs)
+            result = multiplyOperation.operate(lhs, rhs)
         case "/" :
             if rhs == 0 {
                 print("Error: Division by zero is not allowed.")
                 return Double.nan
             }
-            result = divideOperation.divide(lhs, rhs)
+            result = divideOperation.operate(lhs, rhs)
         case "%" :
-            result = modulusOperation.modulus(lhs, rhs)
+            result = modulusOperation.operate(lhs, rhs)
         default:
             print("Error: Invalid operation")
             return Double.nan
