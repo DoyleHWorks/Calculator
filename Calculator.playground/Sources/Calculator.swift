@@ -22,6 +22,7 @@ public class Calculator {
         return displayMessage
     }
     
+    // TODO: Refactor this method to reduce parameter count by encapsulating data in a struct
     // Executes a calculation based on the provided operator and operands.
     // Handles invalid operators and division by zero by returning NaN.
     public func Calculate(_ lhs: Double, _ operation: String, _ rhs: Double) -> Double {
