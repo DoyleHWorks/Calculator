@@ -41,14 +41,14 @@ class Calculator {
             result = multiplyOperation.operate(lhs, rhs)
         case "/" :
             if rhs == 0 { // Exception: Divided by Zero
-                print("Error: Division by zero is not allowed.")
+                print("Error: Division by zero is not allowed. (Expression: \(lhs) \(operation) \(rhs))")
                 return Double.nan
             }
             result = divideOperation.operate(lhs, rhs)
         case "%" :
             result = modulusOperation.operate(lhs, rhs)
         default: // Exception: Invalid Operator
-            print("Error: Invalid operator")
+            print("Error: Invalid operator (Expression: \(lhs) \(operation) \(rhs))")
             return Double.nan
         }
         DisplayResult(lhs, operation, rhs, result)
