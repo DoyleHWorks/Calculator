@@ -2,7 +2,7 @@
 //  DivideOperation.swift
 //  
 //
-//  Created by t0000-m0112 on 10/30/24.
+//  Created by DoyleHWorks on 10/30/24.
 //
 
 public class DivideOperation: AbstractOperation {

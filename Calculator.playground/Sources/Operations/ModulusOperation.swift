@@ -2,7 +2,7 @@
 //  ArithmeticOperations.swift
 //  
 //
-//  Created by DOYLE on 10/29/24.
+//  Created by DoyleHWorks on 10/29/24.
 //
 
 public class ModulusOperation: AbstractOperation {
