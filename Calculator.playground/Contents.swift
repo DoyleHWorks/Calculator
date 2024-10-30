@@ -22,6 +22,7 @@ class Calculator {
         return "\(lhs) \(operation) \(rhs) = \(value)"
     }
     
+    // This function is a hassle to use and should have a String handling instance that translates single String into an expression(Numbers and Operator)
     func Calculate(_ lhs: Double, _ operation: String, _ rhs: Double) -> Double {
         /// Performs a calculation based on the provided operator and operands.
         /// - Parameters:
@@ -56,8 +57,7 @@ class Calculator {
     }
 }
 
-let calculator = Calculator() // Creates an instance to assign it to a variable
-Calculator.Calculate
+let calculator = Calculator() // Creates an calculator instance to assign it to a variable
 
 //
 // How to Use
