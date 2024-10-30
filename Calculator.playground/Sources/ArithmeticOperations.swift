@@ -6,7 +6,7 @@
 //
 
 // Protocol for Operation Classes
-protocol AbstractOperation {
+public protocol AbstractOperation {
     func operate(_ num1: Double, _ num2: Double) -> Double
 }
 

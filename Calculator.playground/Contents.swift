@@ -9,11 +9,11 @@
 class Calculator {
     
     // Sources_ArithmeticOperations.swift
-    let addOperation = AddOperation()
-    let subtractOperation = SubtractOperation()
-    let multiplyOperation = MultiplyOperation()
-    let divideOperation = DivideOperation()
-    let modulusOperation = ModulusOperation()
+    private let operations: [String: AbstractOperation]
+    
+    init(operations: [String: AbstractOperation]) {
+        self.operations = operations
+    }
     
     // This function takes too many parameters and needs to be refined somehow
     func DisplayResult(_ lhs: Double, _ operation: String, _ rhs: Double, _ value: Double) -> String {
@@ -31,33 +31,31 @@ class Calculator {
         ///   - rhs: The right-hand side operand (Double).
         /// - Returns: The result of the operation as a Double. If division by zero occurs, returns NaN. If an invalid operator is provided, returns NaN.
         /// - Note: Prints an error message if division by zero or an invalid operator is encountered.
-        let result: Double
         
-        switch operation {
-        case "+" :
-            result = addOperation.operate(lhs, rhs)
-        case "-" :
-            result = subtractOperation.operate(lhs, rhs)
-        case "*" :
-            result = multiplyOperation.operate(lhs, rhs)
-        case "/" :
-            if rhs == 0 { // Exception: Divided by Zero
-                print("Error: Division by zero is not allowed. (Expression: \(lhs) \(operation) \(rhs))")
-                return Double.nan
-            }
-            result = divideOperation.operate(lhs, rhs)
-        case "%" :
-            result = modulusOperation.operate(lhs, rhs)
-        default: // Exception: Invalid Operator
+        guard let op = operations[operation] else {
             print("Error: Invalid operator (Expression: \(lhs) \(operation) \(rhs))")
             return Double.nan
         }
+        
+        if operation == "/" && rhs == 0 {
+            print("Error: Division by zero is not allowed. (Expression: \(lhs) \(operation) \(rhs))")
+            return Double.nan
+        }
+        
+        let result = op.operate(lhs, rhs)
         DisplayResult(lhs, operation, rhs, result)
         return result
     }
 }
 
-let calculator = Calculator() // Creates an calculator instance to assign it to a variable
+// Creates an calculator instance to assign it to a variable
+let calculator = Calculator(operations: [
+    "+": AddOperation(),
+    "-": SubtractOperation(),
+    "*": MultiplyOperation(),
+    "/": DivideOperation(),
+    "%": ModulusOperation()
+])
 
 //
 // How to Use
