@@ -67,9 +67,13 @@ Calculator.Calculate
 // please use constants or parameters to input values when writing the code.
 //
 
+// Example Inputs
 calculator.Calculate(10, "+", 20)
 calculator.Calculate(10, "-", 20)
 calculator.Calculate(10, "*", 20)
 calculator.Calculate(10, "/", 20)
-calculator.Calculate(10, "%", 5.0)
+calculator.Calculate(10, "%", 20)
 
+// Example Inputs - Exceptions
+calculator.Calculate(10, "/", 0)
+calculator.Calculate(10, "?", 20)
